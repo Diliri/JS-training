@@ -19,7 +19,7 @@ sumArray(myNumbers, result => {
 function doubleArray(numbers, callback) {
   // map створює новий масив, тому ми зберігаємо його у змінну
   const doubled = numbers.map(number => {
-    return number * 2; // обов'язково повертаємо результат множення
+    return number * 2;
   });
 
   // Передаємо саме НОВИЙ масив у колбек
@@ -36,6 +36,11 @@ doubleArray(original, res => {
 // є один нюанс: метод map не змінює оригінальний масив, а створює новий.
 
 // Фільтр слів: Напишіть функцію filterWords(words, condition, callback), яка приймає масив рядків words, функцію condition (перевірка рядка) та колбек callback. Функція повинна фільтрувати слова масиву за допомогою переданої умови та передати відфільтрований масив у колбек.
+function filterWords(words, condition, callback) {
+  const filtered = words.filter(condition);
+  callback(filtered);
+  return filtered;
+}
 
 // Капіталізація рядків: Напишіть функцію capitalizeStrings(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити всі рядки в масиві, роблячи першу літеру кожного рядка великої, і передати перетворений масив в колбек.
 
