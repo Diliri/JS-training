@@ -1,44 +1,52 @@
-// Напиши стрілочну функцію getUserNames(users),
-//  яка прийматиме один параметр users — масив об’єктів користувачів.
-// Функція має повертати масив імен усіх користувачів(властивість name) із масиву users.
+// Callback
+// Сума чисел: Напишіть функцію sumArray(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна обчислити суму чисел у масиві та передати результат у колбек.
+function sumArray(numbers, callback) {
+  let sum = 0;
+  numbers.forEach(number => {
+    sum += number;
+  });
+  callback(sum);
+}
 
-const getUserNames = users => users.map(user => user.name);
-console.log(
-  getUserNames([
-    {
-      name: 'Moore Hensley',
-      email: 'moorehensley@indexia.com',
-      balance: 2811,
-    },
-    {
-      name: 'Sharlene Bush',
-      email: 'sharlenebush@tubesys.com',
-      balance: 3821,
-    },
-    {
-      name: 'Ross Vazquez',
-      email: 'rossvazquez@xinware.com',
-      balance: 3793,
-    },
-    {
-      name: 'Elma Head',
-      email: 'elmahead@omatom.com',
-      balance: 2278,
-    },
-    {
-      name: 'Carey Barr',
-      email: 'careybarr@nurali.com',
-      balance: 3951,
-    },
-    {
-      name: 'Blackburn Dotson',
-      email: 'blackburndotson@furnigeer.com',
-      balance: 1498,
-    },
-    {
-      name: 'Sheree Anthony',
-      email: 'shereeanthony@kog.com',
-      balance: 2764,
-    },
-  ])
-); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+// Приклад використання:
+const myNumbers = [10, 20, 30, 40];
+
+sumArray(myNumbers, result => {
+  console.log('Сума масиву дорівнює:', result);
+});
+
+// Подвоєння чисел: Напишіть функцію doubleArray(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна подвоїти кожне число в масиві та передати новий масив у колбек.
+function doubleArray(numbers, callback) {
+  // map створює новий масив, тому ми зберігаємо його у змінну
+  const doubled = numbers.map(number => {
+    return number * 2; // обов'язково повертаємо результат множення
+  });
+
+  // Передаємо саме НОВИЙ масив у колбек
+  callback(doubled);
+}
+
+// Приклад використання:
+const original = [1, 2, 3, 4, 5];
+
+doubleArray(original, res => {
+  console.log('Новий масив:', res); // [2, 4, 6, 8, 10]
+  console.log('Оригінал залишився без змін:', original); // [1, 2, 3, 4, 5]
+});
+// є один нюанс: метод map не змінює оригінальний масив, а створює новий.
+
+// Фільтр слів: Напишіть функцію filterWords(words, condition, callback), яка приймає масив рядків words, функцію condition (перевірка рядка) та колбек callback. Функція повинна фільтрувати слова масиву за допомогою переданої умови та передати відфільтрований масив у колбек.
+
+// Капіталізація рядків: Напишіть функцію capitalizeStrings(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити всі рядки в масиві, роблячи першу літеру кожного рядка великої, і передати перетворений масив в колбек.
+
+// Сортування чисел: Напишіть функцію sortNumbers(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна відсортувати числа в масиві за зростанням та передати відсортований масив у колбек.
+
+// Пошук максимуму: Напишіть функцію findMax(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна знайти максимальне число в масиві та передати його в колбек.
+
+// Перевірка на парність: Напишіть функцію checkEven(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна перевірити, чи всі числа в масиві парні, і передати результат перевірки колбек.
+
+// Об'єднання рядків: Напишіть функцію concatStrings(strings, separator, callback), яка приймає масив рядків strings, рядок separator та колбек callback. Функція повинна об'єднати рядки з масиву, розділяючи їх переданим роздільником, і передати рядок, що вийшов, в колбек.
+
+// Перетворення в числа: Напишіть функцію parseNumbers(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити кожен рядок з масиву на число і передати новий масив чисел в колбек.
+
+// Підрахунок символів: Напишіть функцію countCharacters(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна підрахувати загальну кількість символів у всіх рядках масиву та передати результат у колбек.
