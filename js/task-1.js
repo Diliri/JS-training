@@ -88,6 +88,22 @@ capitalizeStrings(names, result => {
 // Задача 8. Об'єднання рядків: Напишіть функцію concatStrings(strings, separator, callback), яка приймає масив рядків strings, рядок separator та колбек callback. Функція повинна об'єднати рядки з масиву, розділяючи їх переданим роздільником, і передати рядок, що вийшов, в колбек.
 
 // Задача 9. Перетворення в числа: Напишіть функцію parseNumbers(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити кожен рядок з масиву на число і передати новий масив чисел в колбек.
+function parseNumbers(strings, callback) {
+  const res = strings.map(string => {
+    return Number(string); // parseInt()
+  });
+  callback(res);
+}
+
+// Приклад використання:
+const input = ['10', '25.5', '100'];
+
+parseNumbers(input, numbers => {
+  console.log(numbers); // [10, 25.5, 100]
+  console.log(typeof numbers[0]); // "number"
+});
+
+// 2ий варіант рішення: const parseNumbers = (strings, callback) => callback(strings.map(Number));
 
 // Задача 10. Підрахунок символів: Напишіть функцію countCharacters(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна підрахувати загальну кількість символів у всіх рядках масиву та передати результат у колбек.
 function countCharacters(strings, callback) {
