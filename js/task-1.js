@@ -39,8 +39,28 @@ doubleArray(original, res => {
 function filterWords(words, condition, callback) {
   const filtered = words.filter(condition);
   callback(filtered);
-  return filtered;
 }
+
+// Приклад використання:
+const words = ['яблуко', 'банан', 'ананас', 'ківі', 'груша'];
+
+// 1. Фільтруємо слова, довші за 5 символів
+filterWords(
+  words,
+  word => word.length > 5,
+  result => {
+    console.log('Довгі слова:', result); // ["яблуко", "ананас"]
+  }
+);
+
+// 2. Фільтруємо слова, що починаються на "а"
+filterWords(
+  words,
+  word => word.startsWith('а'),
+  result => {
+    console.log("Слова на 'а':", result); // ["ананас"]
+  }
+);
 
 // Задача 4. Капіталізація рядків: Напишіть функцію capitalizeStrings(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити всі рядки в масиві, роблячи першу літеру кожного рядка великої, і передати перетворений масив в колбек.
 function capitalizeStrings(strings, callback) {
@@ -70,3 +90,13 @@ capitalizeStrings(names, result => {
 // Задача 9. Перетворення в числа: Напишіть функцію parseNumbers(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити кожен рядок з масиву на число і передати новий масив чисел в колбек.
 
 // Задача 10. Підрахунок символів: Напишіть функцію countCharacters(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна підрахувати загальну кількість символів у всіх рядках масиву та передати результат у колбек.
+function countCharacters(strings, callback) {
+  let sum = 0;
+  strings.forEach(string => (sum += string.length));
+  callback(sum);
+}
+
+// Приклад використання:
+countCharacters(['Привіт', 'світ', 'JS'], result => {
+  console.log(`Загальна кількість символів: ${result}`); // Виведе: 12
+});
