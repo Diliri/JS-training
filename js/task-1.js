@@ -84,8 +84,33 @@ capitalizeStrings(names, result => {
 // задача 6. Пошук максимуму: Напишіть функцію findMax(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна знайти максимальне число в масиві та передати його в колбек.
 
 // Задача 7. Перевірка на парність: Напишіть функцію checkEven(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна перевірити, чи всі числа в масиві парні, і передати результат перевірки колбек.
+function checkEven(numbers, callback) {
+  const result = numbers.every(number => number % 2 === 0);
+  callback(result);
+}
+
+// Перевірка на парних числах
+checkEven([2, 4, 6, 8], isEven => {
+  console.log(isEven); // true
+});
+
+// Перевірка з одним непарним числом
+checkEven([2, 4, 7, 8], isEven => {
+  console.log(isEven); // false
+});
 
 // Задача 8. Об'єднання рядків: Напишіть функцію concatStrings(strings, separator, callback), яка приймає масив рядків strings, рядок separator та колбек callback. Функція повинна об'єднати рядки з масиву, розділяючи їх переданим роздільником, і передати рядок, що вийшов, в колбек.
+function concatStrings(strings, separator, callback) {
+  // Метод join автоматично бере кожен елемент і ставить між ними separator
+  const combinedString = strings.join(separator);
+
+  callback(combinedString);
+}
+
+// Приклад використання:
+concatStrings(['Київ', 'Львів', 'Одеса'], ' - ', result => {
+  console.log(result); // "Київ - Львів - Одеса"
+});
 
 // Задача 9. Перетворення в числа: Напишіть функцію parseNumbers(strings, callback), яка приймає масив рядків strings та колбек callback. Функція повинна перетворити кожен рядок з масиву на число і передати новий масив чисел в колбек.
 function parseNumbers(strings, callback) {
