@@ -80,8 +80,34 @@ capitalizeStrings(names, result => {
 });
 
 // Задача 5. Сортування чисел: Напишіть функцію sortNumbers(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна відсортувати числа в масиві за зростанням та передати відсортований масив у колбек.
+function sort(numbers, callback) {
+  const result = numbers.toSorted((a, b) => {
+    return a - b;
+  });
+  callback(result);
+}
+
+// Приклад використання:
+sortNumbers([10, 1, 22, 5], sorted => {
+  console.log(sorted); // [1, 5, 10, 22]
+});
 
 // задача 6. Пошук максимуму: Напишіть функцію findMax(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна знайти максимальне число в масиві та передати його в колбек.
+function findMax(numbers, callback) {
+  const result = Math.max(...numbers); // використати оператор spread, щоб
+  // Math.max() - ця функція не вміє самостійно "дивитися" всередину масиву,
+  // якщо його передати як один аргумент. Вона очікує список чисел через кому.
+  // Якщо просто передати масив, вона поверне NaN.
+  // Тому спочатку масив треба перетворити
+  callback(result);
+}
+
+// Приклад використання:
+const nums = [10, 5, 22, 14, 8];
+
+findMax(nums, max => {
+  console.log(`Максимальне число в масиві: ${max}`);
+});
 
 // Задача 7. Перевірка на парність: Напишіть функцію checkEven(numbers, callback), яка приймає масив чисел numbers та колбек callback. Функція повинна перевірити, чи всі числа в масиві парні, і передати результат перевірки колбек.
 function checkEven(numbers, callback) {
